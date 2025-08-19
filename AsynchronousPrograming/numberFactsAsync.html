@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Facts</title>
+</head>
+<body>
+  <h1>Number Facts</h1>
+  <ul id="facts"></ul>
+  <script>
+    const favoriteNumber = 7;
+    const factsList = document.getElementById('facts');
+
+    // Function to fetch a fact 
+    function fetchFact() {
+      return fetch(`http://numbersapi.com/${favoriteNumber}?json`)
+        .then(response => response.json());
+    }
+
+    async function getFacts() {
+  const factsList = document.getElementById('facts');
+  factsList.innerHTML = ''; // Clear previous facts if any
+
+  // Fetch 4 facts in parallel
+  const promises = [fetchFact(), fetchFact(), fetchFact(), fetchFact()];
+  const facts = await Promise.all(promises);
+
+  facts.forEach(fact => {
+    const li = document.createElement('li');
+    li.textContent = fact.text;
+    factsList.appendChild(li);
+  });
+}
+
+// Call the async function
+getFacts();
+  </script>
+</body>
+</html>

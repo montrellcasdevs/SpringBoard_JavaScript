@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Deck of Cards - Async/Await</title>
+</head>
+<body>
+  <h1>Deck of Cards (Async/Await)</h1>
+  <button id="draw">Draw Card</button>
+  <div id="cards"></div>
+  <script>
+    // 1. Request a single card from a new deck
+    async function drawTwoCards() {
+      const res1 = await fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=1');
+      const data1 = await res1.json();
+      const card1 = data1.cards[0];
+      console.log(`${card1.value.toLowerCase()} of ${card1.suit.toLowerCase()}`);
+      const deckId = data1.deck_id;
+      const res2 = await fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`);
+      const data2 = await res2.json();
+      const card2 = data2.cards[0];
+      console.log(`${card2.value.toLowerCase()} of ${card2.suit.toLowerCase()}`);
+    }
+    drawTwoCards();
+
+    // 2. HTML page to draw cards from a deck
+    let deckId = null;
+    let remaining = 52;
+    const drawBtn = document.getElementById('draw');
+    const cardsDiv = document.getElementById('cards');
+    drawBtn.disabled = true;
+
+    async function setupDeck() {
+      const res = await fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1');
+      const data = await res.json();
+      deckId = data.deck_id;
+      drawBtn.disabled = false;
+    }
+    setupDeck();
+
+    drawBtn.addEventListener('click', async function() {
+      if (!deckId || remaining === 0) return;
+      const res = await fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`);
+      const data = await res.json();
+      if (data.success && data.cards.length > 0) {
+        const card = data.cards[0];
+        const img = document.createElement('img');
+        img.src = card.image;
+        img.alt = `${card.value} of ${card.suit}`;
+        img.style.height = '120px';
+        cardsDiv.appendChild(img);
+        remaining = data.remaining;
+        if (remaining === 0) drawBtn.disabled = true;
+      }
+    });
+  </script>
+</body>
+</html>

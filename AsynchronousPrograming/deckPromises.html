@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Deck of Cards - Promises</title>
+</head>
+<body>
+  <h1>Deck of Cards (Promises)</h1>
+  <button id="draw">Draw Card</button>
+  <div id="cards"></div>
+  <script>
+    // 1. Request a single card from a new deck
+    fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=1')
+      .then(response => response.json())
+      .then(data => {
+        const card = data.cards[0];
+        console.log(`${card.value.toLowerCase()} of ${card.suit.toLowerCase()}`);
+        // 2. Draw another card from the same deck
+        return fetch(`https://deckofcardsapi.com/api/deck/${data.deck_id}/draw/?count=1`);
+      })
+      .then(response => response.json())
+      .then(data => {
+        const card = data.cards[0];
+        console.log(`${card.value.toLowerCase()} of ${card.suit.toLowerCase()}`);
+      });
+
+    // 3. HTML page to draw cards from a deck
+    let deckId = null;
+    let remaining = 52;
+    const drawBtn = document.getElementById('draw');
+    const cardsDiv = document.getElementById('cards');
+    drawBtn.disabled = true;
+
+    // Create a new deck on page load
+    fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
+      .then(response => response.json())
+      .then(data => {
+        deckId = data.deck_id;
+        drawBtn.disabled = false;
+      });
+
+    drawBtn.addEventListener('click', function() {
+      if (!deckId || remaining === 0) return;
+      fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.success && data.cards.length > 0) {
+            const card = data.cards[0];
+            const img = document.createElement('img');
+            img.src = card.image;
+            img.alt = `${card.value} of ${card.suit}`;
+            img.style.height = '120px';
+            cardsDiv.appendChild(img);
+            remaining = data.remaining;
+            if (remaining === 0) drawBtn.disabled = true;
+          }
+        });
+    });
+  </script>
+</body>
+</html>

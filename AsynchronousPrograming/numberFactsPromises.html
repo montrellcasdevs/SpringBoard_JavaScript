@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Facts</title>
+</head>
+<body>
+  <h1>Number Facts</h1>
+  <ul id="facts"></ul>
+  <script>
+    const favoriteNumber = 7;
+    const factsList = document.getElementById('facts');
+
+    // Function to fetch a fact
+    function fetchFact() {
+      return fetch(`http://numbersapi.com/${favoriteNumber}?json`)
+        .then(response => response.json());
+    }
+
+    // Get 4 facts and print them to the page
+    Promise.all([fetchFact(), fetchFact(), fetchFact(), fetchFact()])
+      .then(facts => {
+        facts.forEach(fact => {
+          const li = document.createElement('li');
+          li.textContent = fact.text;
+          factsList.appendChild(li);
+        });
+      });
+
+    // Example: Get facts for multiple numbers in one request inside the console
+    fetch('http://numbersapi.com/7,13,42?json')
+      .then(response => response.json())
+      .then(data => console.log(data));
+  </script>
+</body>
+</html>
