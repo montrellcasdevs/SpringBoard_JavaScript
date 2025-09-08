@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Graph Demo</title>
+</head>
+<body>
+    <h1>Graph Demo</h1>
+    <div id="output"></div>
+    <script src="./graph/graph.js"></script>
+    <script>
+      // Example usage: create a graph and show output
+      const outputDiv = document.getElementById('output');
+      if (window.Graph && window.Node) {
+        const graph = new window.Graph();
+        const a = new window.Node('A');
+        const b = new window.Node('B');
+        graph.addVertex(a);
+        graph.addVertex(b);
+        graph.addEdge(a, b);
+        outputDiv.innerText = `Graph has nodes: ${Array.from(graph.nodes).map(n => n.value).join(', ')}\nA adjacent: ${Array.from(a.adjacent).map(n => n.value).join(', ')}`;
+      } else {
+        outputDiv.innerText = 'Graph or Node class not found. Make sure graph.js attaches them to window.';
+      }
+    </script>
+</body>
+</html>
