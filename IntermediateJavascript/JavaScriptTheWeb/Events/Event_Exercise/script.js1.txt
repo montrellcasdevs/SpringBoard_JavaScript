@@ -1,0 +1,67 @@
+//1
+document.addEventListener('DOMContentLoaded', () => {
+    // Get elements from the DOM
+    const boxContainer = document.getElementById('box-container');
+    const newBoxButton = document.getElementById('new-box-button');
+    const colorForm = document.getElementById('color-form');
+    const colorInput = document.getElementById('color-input');
+
+    // Variables to store box color and counter
+    let currentBoxColor = '#add8e6'; // Default light blue
+    let boxIdCounter = 1;
+
+    // Function to add a new box
+    function addNewBox() {
+        const newBox = document.createElement('div');
+        newBox.classList.add('box');
+        newBox.textContent = boxIdCounter;
+        newBox.style.backgroundColor = currentBoxColor;
+        newBox.dataset.boxId = boxIdCounter; // Store ID in a data attribute
+        boxContainer.appendChild(newBox);
+        boxIdCounter++;
+    }
+
+    // Event listener for color form submission
+    colorForm.addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent default form submission
+        currentBoxColor = colorInput.value;
+        document.querySelectorAll('.box').forEach(box => {
+            box.style.backgroundColor = currentBoxColor;
+        });
+        colorInput.value = ''; // Reset color input
+    });
+
+    // Event listener for new box button click
+    newBoxButton.addEventListener('click', addNewBox);
+
+    // Event listener for double-click to remove a box
+    document.addEventListener('dblclick', (event) => {
+        if (event.target.classList.contains('box')) {
+            event.target.remove();
+        }
+    });
+
+    // Event listener for mouse over to display coordinates
+    document.addEventListener('mouseover', (event) => {
+        if (event.target.classList.contains('box')) {
+            event.target.textContent = `X: ${event.pageX}, Y: ${event.pageY}`;
+        }
+    });
+
+    // Event listener for mouse out to display box ID
+    document.addEventListener('mouseout', (event) => {
+        if (event.target.classList.contains('box')) {
+            event.target.textContent = event.target.dataset.boxId;
+        }
+    });
+
+    // Event listener for keydown to add a new box with 'N' key
+    document.addEventListener('keydown', (event) => {
+        if (event.key.toLowerCase() === 'n' && event.target !== colorInput) {
+            addNewBox();
+        }
+    });
+
+    // Add an initial box for demonstration
+    addNewBox();
+});

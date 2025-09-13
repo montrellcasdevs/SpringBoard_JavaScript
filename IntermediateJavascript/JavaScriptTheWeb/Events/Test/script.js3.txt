@@ -1,0 +1,83 @@
+//for script.js A
+// const buttons = document.querySelectorAll("button");
+
+// for (let button of buttons) {
+//   button.addEventListener("click", function(event) {
+//     event.target.parentElement.remove();
+//   });
+// }
+
+//for script.js B
+// const form = document.querySelector("form");
+// const friendList = document.getElementById("friend-list");
+
+// form.addEventListener("submit", function(event) {
+//   event.preventDefault();
+//   const input = document.getElementById("first-name");
+//   const newFriend = document.createElement("li");
+//   newFriend.textContent = input.value;
+//   const removeButton = document.createElement("button");
+//   removeButton.textContent = "Remove";
+//   removeButton.addEventListener("click", function() {
+//     newFriend.remove();
+//   });
+//   newFriend.appendChild(removeButton);
+//   friendList.appendChild(newFriend);
+//   input.value = "";
+// });
+
+//Another way of doing the same thing
+// const form = document.querySelector("form");
+// const friendList = document.querySelector("#friend-list");
+
+// form.addEventListener("submit", function(event) {
+//   event.preventDefault();
+//   const newFriendInput = document.querySelector("#first-name");
+//   const newLi = document.createElement("li");
+//   const newButton = document.createElement("button");
+//   newLi.innerText = newFriendInput.value;
+//   newButton.innerText = "Remove";
+
+//   newButton.addEventListener("click", function(event) {
+//     event.target.parentElement.remove();
+//   });
+
+//   newLi.append(newButton);
+//   friendList.append(newLi);
+//   form.reset();
+// });
+
+//calling only one event listener to add new friends
+
+// const form = document.querySelector("form");
+// const friendList = document.querySelector("#friend-list");
+
+// form.addEventListener("submit", function(event) {
+//   event.preventDefault();
+//   const newFriendInput = document.querySelector("#first-name");
+//   const newLi = document.createElement("li");
+//   const newButton = document.createElement("button");
+//   newLi.innerText = newFriendInput.value;
+//   newButton.innerText = "Remove";
+
+//  friendList.addEventListener("click", function(event) {
+//   if (event.target.tagName === "BUTTON") {
+//     event.target.parentElement.remove();
+//   }
+// });
+
+//   newLi.append(newButton);
+//   friendList.append(newLi);
+//   form.reset();
+// });
+
+const ul = document.querySelector("ul");
+
+ul.addEventListener("click", function(event) {
+  const selectedElement = event.target;
+  console.log("see all data attributes", selectedElement.dataset);
+  console.log(
+    "see one data attribute",
+    selectedElement.getAttribute("data-model")
+  );
+});
