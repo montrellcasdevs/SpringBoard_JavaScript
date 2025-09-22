@@ -1,0 +1,15 @@
+/* Basic layout */
+body { font-family: Arial, system-ui, sans-serif; line-height: 1.4; padding: 1rem; }
+main { max-width: 900px; margin: 0 auto; }
+
+/* Search form */
+#search-form { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+#search-input { flex: 1; padding: 0.5rem; font-size: 1rem; }
+#search-form button { padding: 0.5rem 0.75rem; }
+
+/* GIF grid */
+.gif-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.5rem; }
+.gif-item img { width: 100%; height: auto; display: block; border-radius: 6px; }
+
+/* Small helpers */
+#results p { margin: 0.5rem 0; }
