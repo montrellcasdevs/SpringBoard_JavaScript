@@ -1,0 +1,79 @@
+/* some colors you may find useful:
+  #115ff4
+  #060ce9
+  #28a200
+  #8d2ab5
+  #74119c
+*/
+
+body {
+  font-family: 'Copse', serif;
+  margin: 0;
+  padding: 24px;
+  background: #05102a; /* dark navy background */
+  color: #fff;
+}
+
+.jeopardy-table {
+  width: 100%;
+  max-width: 1100px;
+  margin: 16px auto;
+  border-collapse: collapse;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+.jeopardy-table thead th {
+  background: linear-gradient(180deg,#0b2b7a,#061a4f);
+  color: #fff;
+  padding: 18px 12px;
+  text-align: center;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+  border: 2px solid rgba(255,255,255,0.06);
+}
+
+.jeopardy-table tbody td {
+  background: linear-gradient(180deg,#163b8f,#0b2b7a);
+  color: #fff;
+  width: calc(100% / 6);
+  height: 110px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: 2px solid rgba(255,255,255,0.04);
+  padding: 8px;
+}
+
+.jeopardy-table tbody td.clue-cell:hover {
+  filter: brightness(1.08);
+}
+
+#jeopardy-controls {
+  max-width: 1100px;
+  margin: 8px auto 40px;
+  text-align: center;
+}
+
+#restart {
+  background: #115ff4;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#restart:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+#jeopardy-spinner {
+  font-family: monospace;
+}
+
+#jeopardy-error {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
