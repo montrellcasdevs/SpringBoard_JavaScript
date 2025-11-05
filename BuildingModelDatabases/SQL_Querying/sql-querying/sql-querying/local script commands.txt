@@ -1,0 +1,22 @@
+# Create DB + table if you haven't already (runs seed_products.sql)
+psql -U postgres -f "c:\Users\story\Springboard\Springboard\SpringBoard_JavaScript\BuildingModelDatabases\SQL_Querying\sql-querying\sql-querying\seed_products.sql"
+
+# Run the CRUD script that executes steps 1..14
+psql -U postgres -f "c:\Users\story\Springboard\Springboard\SpringBoard_JavaScript\BuildingModelDatabases\SQL_Querying\sql-querying\sql-querying\crud.sql"
+
+# (Optional) Run the completed-queries file interactively or paste into psql
+psql -U postgres -f "c:\Users\story\Springboard\Springboard\SpringBoard_JavaScript\BuildingModelDatabases\SQL_Querying\sql-querying\sql-querying\queries_products_completed.sql"
+
+------------------------------------------------------------------------------
+
+
+# Run the DB + table creation script (may require superuser privileges)
+psql -U postgres -f "c:\Users\story\Springboard\Springboard\SpringBoard_JavaScript\BuildingModelDatabases\SQL_Querying\sql-querying\sql-querying\seed_products.sql"
+
+# Then run the data seed
+psql -U postgres -f "c:\Users\story\Springboard\Springboard\SpringBoard_JavaScript\BuildingModelDatabases\SQL_Querying\sql-querying\sql-querying\seed_products_data.sql"
+
+# (Optional) Connect and verify interactively
+psql -U postgres -d products_db
+# then inside psql:
+# SELECT id, name, price, can_be_returned FROM products LIMIT 20;
