@@ -1,0 +1,12 @@
+psql -U postgres -f .\air_traffic.sql
+psql -U postgres -f .\music.sql
+psql -U postgres -f .\medical_center.sql
+psql -U postgres -f .\craigslist.sql
+psql -U postgres -f .\soccer_league.sql
+
+
+
+
+$ psql -U postgres -d air_traffic -c "\dt"
+
+psql -U postgres -d outer_space -c "\d galaxies" -c "\d stars" -c "\d planets" -c "\d moons"
