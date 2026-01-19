@@ -1,0 +1,130 @@
+.home-page {
+  padding: 2rem 0;
+}
+
+.home-content {
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-page h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--highlight-color) 0%, #ff6b9d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.intro-text {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.category-card {
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--secondary-color) 100%);
+  padding: 2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(233, 69, 96, 0.3);
+  border-color: var(--highlight-color);
+}
+
+.category-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--highlight-color);
+}
+
+.category-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.planets-card:hover {
+  background: linear-gradient(135deg, rgba(233, 69, 96, 0.1) 0%, rgba(233, 69, 96, 0.05) 100%),
+              linear-gradient(135deg, var(--card-bg) 0%, var(--secondary-color) 100%);
+}
+
+.stars-card:hover {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%),
+              linear-gradient(135deg, var(--card-bg) 0%, var(--secondary-color) 100%);
+}
+
+.galaxies-card:hover {
+  background: linear-gradient(135deg, rgba(100, 200, 255, 0.1) 0%, rgba(100, 200, 255, 0.05) 100%),
+              linear-gradient(135deg, var(--card-bg) 0%, var(--secondary-color) 100%);
+}
+
+.info-section {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+  padding: 2rem;
+  border-radius: 10px;
+  border-left: 4px solid var(--highlight-color);
+}
+
+.info-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--highlight-color);
+}
+
+.info-section p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .home-page h1 {
+    font-size: 2rem;
+  }
+
+  .intro-text {
+    font-size: 1rem;
+  }
+
+  .categories-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .category-card {
+    padding: 1.5rem;
+  }
+
+  .category-card h2 {
+    font-size: 1.5rem;
+  }
+}

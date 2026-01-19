@@ -1,0 +1,32 @@
+.back-button {
+  background-color: var(--highlight-color);
+  color: var(--text-color);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-button:hover {
+  background-color: #ff6b9d;
+  transform: translateX(-3px);
+  box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4);
+}
+
+.back-button:active {
+  transform: translateX(-1px);
+}
+
+@media (max-width: 768px) {
+  .back-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}

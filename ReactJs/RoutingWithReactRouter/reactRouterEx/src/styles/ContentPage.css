@@ -1,0 +1,153 @@
+.content-page {
+  padding: 2rem 0;
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content-container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.content-main {
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--secondary-color) 100%);
+  padding: 2.5rem;
+  border-radius: 10px;
+  border: 2px solid var(--border-color);
+}
+
+.content-title {
+  font-size: 2.5rem;
+  color: var(--highlight-color);
+  margin-bottom: 1.5rem;
+}
+
+.content-info {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-color);
+}
+
+.content-info p {
+  margin-bottom: 1.5rem;
+}
+
+.sidebar {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 2px solid var(--border-color);
+  height: fit-content;
+}
+
+.sidebar h3 {
+  color: var(--highlight-color);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--highlight-color);
+  padding-bottom: 0.75rem;
+}
+
+.related-list {
+  list-style: none;
+}
+
+.related-list li {
+  margin-bottom: 0.75rem;
+}
+
+.related-link {
+  color: var(--text-color);
+  text-decoration: none;
+  display: block;
+  padding: 0.75rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.related-link:hover {
+  background-color: rgba(233, 69, 96, 0.2);
+  color: var(--highlight-color);
+  transform: translateX(5px);
+}
+
+.related-link.active {
+  background-color: var(--highlight-color);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.error-page {
+  text-align: center;
+  padding: 3rem;
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+  border-radius: 10px;
+  margin: 2rem 0;
+}
+
+.error-page h1 {
+  color: var(--highlight-color);
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.error-page p {
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 1024px) {
+  .content-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .sidebar {
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-page {
+    padding: 1rem 0;
+  }
+
+  .content-main {
+    padding: 1.5rem;
+  }
+
+  .content-title {
+    font-size: 2rem;
+  }
+
+  .content-info {
+    font-size: 1rem;
+  }
+
+  .sidebar {
+    padding: 1.5rem;
+  }
+
+  .sidebar h3 {
+    font-size: 1.1rem;
+  }
+
+  .related-link {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+}
