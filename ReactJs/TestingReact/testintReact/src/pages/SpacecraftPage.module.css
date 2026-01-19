@@ -1,0 +1,236 @@
+.spacecraft-page {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding: 2rem 1rem;
+}
+
+.spacecraft-page__container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.spacecraft-page__back {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: #95a5a6;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  transition: background 0.3s ease;
+}
+
+.spacecraft-page__back:hover {
+  background: #7f8c8d;
+}
+
+.spacecraft-page__error {
+  background: #e74c3c;
+  color: white;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.spacecraft-page__not-found {
+  background: white;
+  padding: 3rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.spacecraft-page__not-found h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.spacecraft-page__not-found a {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.spacecraft-page__not-found a:hover {
+  background: #2980b9;
+}
+
+.spacecraft-page__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.spacecraft-page__main {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.spacecraft-page__image-wrapper {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.spacecraft-page__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.spacecraft-page__info {
+  padding: 2rem;
+}
+
+.spacecraft-page__title {
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+  color: #333;
+}
+
+.spacecraft-page__description {
+  margin: 0 0 1.5rem 0;
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.spacecraft-page__specs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.spacecraft-page__spec {
+  padding: 0.8rem;
+  background: #f9f9f9;
+  border-left: 4px solid #3498db;
+  border-radius: 4px;
+  color: #555;
+}
+
+.spacecraft-page__dispatch {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.spacecraft-page__dispatch-title {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.spacecraft-page__current-planet {
+  background: #e8f4f8;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #3498db;
+}
+
+.spacecraft-page__planet-info {
+  margin: 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.spacecraft-page__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.spacecraft-page__label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.spacecraft-page__label strong {
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.spacecraft-page__select {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  color: #333;
+  background: white;
+  cursor: pointer;
+}
+
+.spacecraft-page__select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.spacecraft-page__select:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.spacecraft-page__btn-send {
+  padding: 0.8rem 1.5rem;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.spacecraft-page__btn-send:hover:not(:disabled) {
+  background: #229954;
+}
+
+.spacecraft-page__btn-send:disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.spacecraft-page__transfer-info {
+  background: #f0f8ff;
+  padding: 1rem;
+  border-radius: 4px;
+  border-left: 4px solid #3498db;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.spacecraft-page__transfer-info p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .spacecraft-page__content {
+    grid-template-columns: 1fr;
+  }
+
+  .spacecraft-page__title {
+    font-size: 1.5rem;
+  }
+
+  .spacecraft-page__image-wrapper {
+    height: 200px;
+  }
+}
