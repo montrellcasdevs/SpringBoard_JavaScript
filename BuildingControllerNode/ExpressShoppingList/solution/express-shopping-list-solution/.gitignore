@@ -1,0 +1,17 @@
+# Ignore node modules
+node_modules/
+
+# Environment
+.env
+
+# Logs
+*.log
+
+# Coverage
+coverage/
+
+# Editor
+.vscode/
+
+# Optional: ignore package-lock if you do not want to commit lockfiles
+# package-lock.json
