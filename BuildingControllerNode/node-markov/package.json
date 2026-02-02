@@ -1,0 +1,21 @@
+{
+  "name": "node-markov",
+  "version": "1.0.0",
+  "description": "Markov text generator",
+  "main": "markov.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node makeText.js file eggs.txt"
+  },
+  "dependencies": {
+    "axios": "^1.5.0"
+  },
+  "devDependencies": {
+    "jest": "^29.6.1"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "author": "",
+  "license": "MIT"
+}
